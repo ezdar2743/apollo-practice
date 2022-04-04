@@ -4,8 +4,11 @@ const { ApolloServer } = require("apollo-server");
 const typeDefs = `
 type Query{
   """ 특정 카테고리 """ 
-  articles(categoryId:ID):[Article!]!
+  articles(where:ArticlesWhereInput):[Article!]!
+}
 
+input ArticlesWhereInput{
+  categoryid:ID
 }
 
 """게시글"""
@@ -88,7 +91,10 @@ type Image {
 `;
 const resolvers = {
   Query: {
-    articles() {
+    articles(parent, args) {
+      console.log(args);
+      //parent, args를 잘 조합해서
+      //디비 , Memcached에 날리든 http에 날리든
       return [];
     },
   },
