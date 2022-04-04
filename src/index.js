@@ -8,7 +8,7 @@ type Query{
 }
 
 input ArticlesWhereInput{
-  categoryid:ID
+  categoryId:ID
 }
 
 """게시글"""
@@ -110,17 +110,26 @@ const resolvers = {
     },
   },
   Article: {
-    id(parent) {
-      return parent.id;
+    author(parent) {
+      //작성자가 부모에 없음 >parent.authorId > DB에 요청
+      return {
+        id: 1,
+        createdAt: "",
+        updatedAt: "",
+        nickName: "ezdar",
+        imageId: 10,
+      };
     },
-    createdAt(parent) {
-      return parent.createdAt;
-    },
-    updatedAt(parent) {
-      return parent.updatedAt;
-    },
-    deletedAt(parent) {
-      return parent.deletedAt;
+  },
+  User: {
+    profileImg(parent) {
+      //prent.imageId > Db
+      return {
+        id: 1,
+        createdAt: "",
+        updatedAt: "",
+        url: "...",
+      };
     },
   },
 };
