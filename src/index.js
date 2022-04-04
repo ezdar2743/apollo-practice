@@ -92,10 +92,35 @@ type Image {
 const resolvers = {
   Query: {
     articles(parent, args) {
-      console.log(args);
       //parent, args를 잘 조합해서
       //디비 , Memcached에 날리든 http에 날리든
-      return [];
+      return [
+        {
+          id: 1,
+          title: "hi",
+          categoryId: 1,
+          createdAt: "",
+          updatedAt: "",
+          viewNum: 12,
+          contetn: "hihihi",
+          authorId: 1,
+          thumbnailId: 3,
+        },
+      ];
+    },
+  },
+  Article: {
+    id(parent) {
+      return parent.id;
+    },
+    createdAt(parent) {
+      return parent.createdAt;
+    },
+    updatedAt(parent) {
+      return parent.updatedAt;
+    },
+    deletedAt(parent) {
+      return parent.deletedAt;
     },
   },
 };
