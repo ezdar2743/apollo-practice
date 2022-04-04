@@ -1,0 +1,11 @@
+{
+  "name": "apollo-practice",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ezdar2743/apollo-practice.git",
+  "author": "ezdar2743@naver.com <ezdar2743@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^3.6.7"
+  }
+}
