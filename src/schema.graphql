@@ -1,6 +1,16 @@
 #  카테고리,게시글,댓글,유저,좋아요,이미지
 
-# 게시글
+type Query{
+  """ 특정 카테고리 """ 
+  articles(categoryId:ID!):[Article!]!
+
+}
+type Mutation{
+
+}
+
+
+"""게시글"""
 type Article {
   id: ID!
 
@@ -8,21 +18,21 @@ type Article {
   updatedAt: String!
   deletedAt: String
 
-  #카테고리 (없으면 기타)
+  """#카테고리 (없으면 기타)"""
   category: Category
-  #제목
+  """#제목"""
   title: String!
-  # 조회수
+  """# 조회수"""
   viewNum: Int!
-  # 내용
+  """# 내용"""
   content: String!
-  # 작성자
+  """# 작성자"""
   author: User!
-  # 댓글들
+  """# 댓글들"""
   comments: [Comment!]!
-  # 좋아요
+  """# 좋아요"""
   likes: [Like!]!
-  #섬네일
+  """#섬네일"""
   thumbnail: Image
 }
 
@@ -32,9 +42,9 @@ type Category {
   updatedAt: String!
   deletedAt: String
 
-  #카테고리 이름
+  """#카테고리 이름"""
   name: String!
-  #해당 카테고리의 Articles
+  """#해당 카테고리의 Articles"""
   articles: [Article!]!
 }
 
@@ -43,9 +53,9 @@ type Comment {
   createdAt: String!
   updatedAt: String!
   deletedAt: String
-  #작성자
+  """#작성자"""
   author: User!
-  #내용
+ """ #내용"""
   content: String!
 }
 
@@ -62,9 +72,9 @@ type User {
 type Like {
   id: ID!
   createdAt: String!
-  #좋아요 한사람
+  """#좋아요 한사람"""
   author: User!
-  #좋아요 받은 게시물
+  """#좋아요 받은 게시물"""
   article: Article!
 }
 
@@ -74,6 +84,6 @@ type Image {
   updatedAt: String!
   deletedAt: String
 
-  #이미지 주소
+  """#이미지 주소"""
   url: String!
 }
