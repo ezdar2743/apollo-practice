@@ -16,7 +16,7 @@ const resolvers = {
           createdAt: "",
           updatedAt: "",
           viewNum: 12,
-          contetn: "hihihi",
+          content: "hihihi",
           authorId: 1,
           thumbnailId: 3,
         },
@@ -34,6 +34,18 @@ const resolvers = {
         imageId: 10,
       };
     },
+    comments(parent) {
+      // parent.id = article id 댓글테이블을 뒤져서 리스트
+      return [
+        {
+          id: 1,
+          createdAt: "",
+          updatedAt: "",
+          authorId: 1,
+          content: "coment!!!",
+        },
+      ];
+    },
   },
   User: {
     profileImg(parent) {
@@ -43,6 +55,18 @@ const resolvers = {
         createdAt: "",
         updatedAt: "",
         url: "...",
+      };
+    },
+  },
+  Comment: {
+    author(parent) {
+      //user id 뒤져서
+      return {
+        id: 1,
+        createdAt: "",
+        updatedAt: "",
+        nickName: "ezdar",
+        imageId: 10,
       };
     },
   },
