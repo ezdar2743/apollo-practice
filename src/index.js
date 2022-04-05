@@ -1,6 +1,6 @@
 const { ApolloServer } = require("apollo-server");
 const fs = require("fs");
-
+const articles = require("./db/Article");
 // 블로그 > 카테고리,게시글,댓글,유저,좋아요,이미지
 const typeDefs = fs.readFileSync("./src/schema.graphql", "utf8");
 const resolvers = {
@@ -8,19 +8,7 @@ const resolvers = {
     articles(parent, args) {
       //parent, args를 잘 조합해서
       //디비 , Memcached에 날리든 http에 날리든
-      return [
-        {
-          id: 1,
-          title: "hi",
-          categoryId: 1,
-          createdAt: "",
-          updatedAt: "",
-          viewNum: 12,
-          content: "hihihi",
-          authorId: 1,
-          thumbnailId: 3,
-        },
-      ];
+      return articles;
     },
   },
   Article: {
