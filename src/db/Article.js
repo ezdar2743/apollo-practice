@@ -13,7 +13,7 @@ module.exports = [
   {
     id: 2,
     title: "hi",
-    categoryId: 1,
+    categoryId: 2,
     createdAt: "",
     updatedAt: "",
     viewNum: 12,
@@ -24,7 +24,7 @@ module.exports = [
   {
     id: 3,
     title: "hi",
-    categoryId: 1,
+    categoryId: 2,
     createdAt: "",
     updatedAt: "",
     viewNum: 12,

@@ -8,6 +8,7 @@ const resolvers = {
     articles(parent, args) {
       //parent, args를 잘 조합해서
       //디비 , Memcached에 날리든 http에 날리든
+
       return articles;
     },
   },
